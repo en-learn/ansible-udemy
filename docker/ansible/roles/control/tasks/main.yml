@@ -3,3 +3,4 @@
   apt:
     name: ["curl", "python-httplib2"]
     state: present
+  tags: ["packages"]
