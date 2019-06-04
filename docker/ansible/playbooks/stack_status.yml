@@ -7,6 +7,7 @@
       command: service nginx status
       args:
         warn: false
+      changed_when: false
 
     - name: verify nginx is listening on 80
       wait_for:
@@ -21,6 +22,7 @@
       command: service apache2 status
       args:
         warn: false
+      changed_when: false
 
     - name: verify apache2 is listening on 80
       wait_for:
@@ -34,6 +36,7 @@
       command: service mysql status
       args:
         warn: false
+      changed_when: false
 
     - name: verify mysql is listening on 3306
       wait_for:
