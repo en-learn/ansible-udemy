@@ -1,6 +1,7 @@
 ---
 - hosts: loadbalancer
   become: true
+  gather_facts: false
   tasks:
     - name: verify nginx service
       command: service nginx status
@@ -14,6 +15,7 @@
 
 - hosts: webserver
   become: true
+  gather_facts: false
   tasks:
     - name: verify apache2 service
       command: service apache2 status
@@ -40,6 +42,7 @@
         timeout: 1
 
 - hosts: control
+  gather_facts: false
   tasks:
     - name: verify end-to-end response
       uri:
@@ -58,6 +61,7 @@
       with_items: "{{groups.loadbalancer}}"
 
 - hosts: loadbalancer
+  gather_facts: false
   tasks:
     - name: verify backend response
       uri:

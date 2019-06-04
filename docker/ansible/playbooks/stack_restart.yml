@@ -2,6 +2,7 @@
 # Bring stack down
 - hosts: loadbalancer
   become: true
+  gather_facts: false
   tasks:
     - service:
         name: nginx
@@ -12,6 +13,7 @@
 
 - hosts: webserver
   become: true
+  gather_facts: false
   tasks:
     - service:
         name: apache2
@@ -35,6 +37,7 @@
 # Bring stack up
 - hosts: webserver
   become: true
+  gather_facts: false
   tasks:
     - service:
         name: apache2
@@ -44,6 +47,7 @@
 
 - hosts: loadbalancer
   become: true
+  gather_facts: false
   tasks:
     - service:
         name: nginx
